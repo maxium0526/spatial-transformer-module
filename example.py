@@ -33,6 +33,8 @@ model.compile(
 	metrics=['acc']
 	)
 
+model.summary()
+
 model.fit(
 	x = x_train,
 	y = to_categorical(y_train),
