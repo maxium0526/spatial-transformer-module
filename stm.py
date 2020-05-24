@@ -50,3 +50,10 @@ class SpatialTransformer(Layer):
 		out = transformer(image, matrix, self.transformer_output_shape)
 
 		return out
+
+	def get_config(self):
+		config = super().get_config().copy()
+		config.update({
+			'output_shape': self.transformer_output_shape
+			})
+		return config

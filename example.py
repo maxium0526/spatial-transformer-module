@@ -25,6 +25,8 @@ def MyModel():
 
 model = MyModel()
 
+model.load_weights('model.h5')
+
 model.compile(
 	optimizer=Adam(lr=1e-4), # if result gets worse, try to decrease the learning rate
 	loss='categorical_crossentropy',
@@ -35,6 +37,8 @@ model.fit(
 	x = x_train,
 	y = to_categorical(y_train),
 	batch_size = 32,
-	epochs = 10,
+	epochs = 1,
 	validation_data = (x_test, to_categorical(y_test))
 	)
+
+model.save('model.h5')
